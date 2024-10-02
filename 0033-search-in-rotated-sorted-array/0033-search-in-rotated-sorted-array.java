@@ -6,14 +6,17 @@ class Solution {
             int mid = left + (right - left) / 2;
             if(nums[mid] == target)
                 return mid;
-
+            //check if the left part is sorted
             if(nums[left] <= nums[mid]){
+                //check if the sorted part contains the target
                 if(nums[left] <= target && target < nums[mid])
                     right = mid - 1;
                 else 
                     left = mid + 1;
             }
+            //if the left part is not sorted then the right part must be sorted.
             else{
+                //check if the sorted part contains the target.
                 if(nums[mid] < target && target <= nums[right])
                     left = mid +  1;
                 else 
