@@ -10,12 +10,13 @@
  */
 class Solution {
     public ListNode removeNthFromEnd(ListNode head, int n) {
+        
         ListNode newNode = new ListNode(0);
         newNode.next = head;
-        ListNode slow = newNode;
+        
         ListNode fast = newNode;
-
-        // create the gap between slow and fast
+        ListNode slow = newNode;
+        
         for(int i = 0 ; i < n ; i++){
             fast = fast.next;
         }
@@ -24,6 +25,8 @@ class Solution {
             fast = fast.next;
         }
         slow.next = slow.next.next;
+        
         return newNode.next;
     }
+    
 }
